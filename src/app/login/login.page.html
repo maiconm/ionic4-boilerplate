@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="loginForm">
+    <ion-item>
+      <ion-input
+        formControlName="usuario"
+        autocomplete="off"
+        placeholder="usuario"
+        type="text"
+      >
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input
+        formControlName="senha"
+        autocomplete="off"
+        placeholder="senha"
+        type="password"
+      >
+      </ion-input>
+    </ion-item>
+  </form>
+</ion-content>
