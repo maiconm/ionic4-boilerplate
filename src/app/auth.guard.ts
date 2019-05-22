@@ -7,33 +7,20 @@ import { Observable } from 'rxjs';
 })
 export class AuthGuard implements CanActivate {
   /**
-   * Url para qual retornar depois de login
-   */
-  public returnUrl: string;
-  /**
    * Declaração de parametros necessários
-   * @param httpservice serviço de rede
    * @param router serviço de roteamento
    */
-  constructor(
-    private router: Router
-  ) {
-
-  }
+  constructor(private router: Router) { }
 
   /**
    * Verifica se está logado
-   * @param route rota que ativou o guard
-   * @param state estado da rota
    */
-  canActivate(
-    route: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot
-  ): Observable<boolean> | boolean {
-    if (localStorage['token']) {
-      return true;
+  public canActivate(): Observable<boolean> | boolean {
+    const loggedIn = localStorage.token || false;
+    if (!loggedIn) {
+      this.router.navigate(['/login']);
     }
-    this.router.navigate(['/login']);
-    return false;
+    console.log('aqui', loggedIn);
+    return loggedIn.length > 0;
   }
 }
