@@ -4,7 +4,9 @@
     "codelyzer"
   ],
   "rules": {
-    "array-type": false,
+    "jsdoc-format": true,
+    "ban-types": [true, "any"],
+    "array-type": true,
     "arrow-parens": false,
     "deprecation": {
       "severity": "warn"
@@ -13,13 +15,13 @@
       true,
       "rxjs/Rx"
     ],
-    "interface-name": false,
+    "interface-name": true,
     "max-classes-per-file": false,
     "max-line-length": [
       true,
       140
     ],
-    "member-access": false,
+    "member-access": true,
     "member-ordering": [
       true,
       {
@@ -31,7 +33,7 @@
         ]
       }
     ],
-    "no-consecutive-blank-lines": false,
+    "no-consecutive-blank-lines": true,
     "no-console": [
       true,
       "debug",
@@ -39,11 +41,6 @@
       "time",
       "timeEnd",
       "trace"
-    ],
-    "no-empty": false,
-    "no-inferrable-types": [
-      true,
-      "ignore-params"
     ],
     "no-non-null-assertion": true,
     "no-redundant-jsdoc": true,
@@ -60,7 +57,7 @@
       true,
       "single"
     ],
-    "trailing-comma": false,
+    "trailing-comma": true,
     "no-output-on-prefix": true,
     "use-input-property-decorator": true,
     "use-output-property-decorator": true,
@@ -71,6 +68,107 @@
     "use-pipe-transform-interface": true,
     "one-variable-per-declaration": false,
     "component-class-suffix": [true, "Page", "Component"],
-    "directive-class-suffix": true
+    "directive-class-suffix": true,
+    
+    "arrow-return-shorthand": true,
+    "align": [
+      true,
+      "parameters",
+      "arguments",
+      "statements",
+      "members",
+      "elements"
+    ],
+    "callable-types": true,
+    "class-name": true,
+    "comment-format": [
+      true,
+      "check-space"
+    ],
+    "curly": false,
+    "eofline": true,
+    "forin": true,
+    "import-spacing": true,
+    "indent": [
+      true,
+      "spaces",
+      2
+    ],
+    "interface-over-type-literal": true,
+    "label-position": true,
+    "no-arg": true,
+    "no-bitwise": true,
+    "no-construct": true,
+    "no-debugger": true,
+    "no-duplicate-super": true,
+    "no-duplicate-imports": true,
+    "no-empty": false,
+    "no-empty-interface": true,
+    "no-eval": true,
+    "no-inferrable-types": [
+      true,
+      "ignore-params",
+      "ignore-properties"
+    ],
+    "no-irregular-whitespace": true,
+    "no-misused-new": true,
+    "no-shadowed-variable": true,
+    "no-string-literal": false,
+    "no-string-throw": true,
+    "no-trailing-whitespace": true,
+    "no-unnecessary-initializer": true,
+    "no-unused-expression": true,
+    "no-var-keyword": true,
+    "one-line": [
+      true,
+      "check-open-brace",
+      "check-catch",
+      "check-else",
+      "check-whitespace"
+    ],
+    "prefer-const": false,
+    "radix": true,
+    "semicolon": [
+      true
+    ],
+    "triple-equals": [
+      true,
+      "allow-null-check"
+    ],
+    "typedef-whitespace": [
+      true, {
+        "call-signature": "nospace",
+        "index-signature": "nospace",
+        "parameter": "nospace",
+        "property-declaration": "nospace",
+        "variable-declaration": "nospace"
+      }
+    ],
+    "typeof-compare": true,
+    "unified-signatures": true,
+    "variable-name": false,
+    "whitespace": [
+      true,
+      "check-branch",
+      "check-decl",
+      "check-operator",
+      "check-separator",
+      "check-type"
+    ],
+    "directive-selector": [
+      true,
+      "attribute",
+      "app",
+      "camelCase"
+    ],
+    "component-selector": [
+      true,
+      "element",
+      "app",
+      "kebab-case"
+    ],
+    "no-access-missing-member": true,
+    "templates-use-public": true,
+    "invoke-injectable": true
   }
 }
