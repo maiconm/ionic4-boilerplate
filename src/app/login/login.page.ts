@@ -11,11 +11,11 @@ import { Router } from '@angular/router';
 })
 export class LoginPage implements OnInit {
   /**
-   * Formulario login.
+   * Login reactive form
    */
   public loginForm: FormGroup;
   /**
-   * @param fb Criador de forulario.
+   * @param fb Reactive form builder
    */
   constructor(
     private router: Router,
@@ -23,20 +23,20 @@ export class LoginPage implements OnInit {
     private fb: FormBuilder
   ) { }
 
-  ngOnInit() {
+  public ngOnInit() {
     this.initLoginForm();
   }
 
   public get email(): string {
-    return this.loginForm.get('usuario').value;
+    return this.loginForm.get('email').value;
   }
 
-  public get senha(): string {
-    return this.loginForm.get('senha').value;
+  public get password(): string {
+    return this.loginForm.get('password').value;
   }
 
   /**
-   * Inicializa formulario reativo com validacoes.
+   * Initialize login form.
    */
   private initLoginForm(): void {
     this.loginForm = this.fb.group({
@@ -59,7 +59,7 @@ export class LoginPage implements OnInit {
   }
 
   public login(): void {
-    this.loginService.performLogin(this.email, this.senha).pipe(
+    this.loginService.performLogin(this.email, this.password).pipe(
       take(1)
     ).subscribe((isLogged: boolean) => {
       if (isLogged) {

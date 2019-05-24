@@ -8,23 +8,21 @@
   <form [formGroup]="loginForm" (ngSubmit)="login()">
     <ion-item>
       <ion-input
-        formControlName="usuario"
-        placeholder="usuario"
+        formControlName="email"
+        placeholder="email"
         type="text"
       >
       </ion-input>
     </ion-item>
     <ion-item>
       <ion-input
-        formControlName="senha"
+        formControlName="password"
         autocomplete="off"
-        placeholder="senha"
+        placeholder="password"
         type="password"
       >
       </ion-input>
     </ion-item>
-    <ion-item>
-      <ion-button type="submit">LOGIN</ion-button>
-    </ion-item>
+    <ion-button expand="full" type="submit">LOGIN</ion-button>
   </form>
 </ion-content>

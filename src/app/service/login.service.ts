@@ -8,10 +8,15 @@ import { map, catchError } from 'rxjs/operators';
 })
 export class LoginService {
   /**
-   * @param http Permite fazer requisicoes http.
+   * @param http Web services requests.
    */
   constructor(private http: HttpClient) { }
 
+  /**
+   * Send email and password to get the token.
+   * @param emailUser Email
+   * @param passUser Password
+   */
   public performLogin(emailUser: string, passUser: string): Observable<boolean> {
     const user = { email: emailUser, password: passUser };
     return this.http.post<string>('http://localhost:3000/login', user).pipe(
