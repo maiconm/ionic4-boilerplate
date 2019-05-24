@@ -5,7 +5,10 @@
 </ion-header>
 
 <ion-content>
-  <form [formGroup]="loginForm" (ngSubmit)="login()">
+  <form
+    [formGroup]="loginForm"
+    (ngSubmit)="login()"
+  >
     <ion-item>
       <ion-input
         formControlName="email"
@@ -23,6 +26,11 @@
       >
       </ion-input>
     </ion-item>
-    <ion-button expand="full" type="submit">LOGIN</ion-button>
+    <ion-button
+      expand="full"
+      type="submit"
+    >
+      {{ waitingRequest ? 'loading' : 'LOGIN' }}
+    </ion-button>
   </form>
 </ion-content>

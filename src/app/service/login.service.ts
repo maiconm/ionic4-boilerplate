@@ -1,8 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, empty, of } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
+const SERVER = 'http://localhost:3000';
 @Injectable({
   providedIn: 'root'
 })
@@ -19,12 +20,12 @@ export class LoginService {
    */
   public performLogin(emailUser: string, passUser: string): Observable<boolean> {
     const user = { email: emailUser, password: passUser };
-    return this.http.post<string>('http://localhost:3000/login', user).pipe(
+    return this.http.post<string>(`${SERVER}/login`, user).pipe(
       map((token: any) => {
         localStorage.setItem('token', token.accessToken);
         return true;
       }),
-      catchError(() => of(false))
+      catchError((err: HttpErrorResponse) => throwError(err))
     );
   }
 }
