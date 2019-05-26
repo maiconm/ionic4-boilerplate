@@ -1,0 +1,12 @@
+:host {
+	display: grid;
+  grid-template-columns: repeat(3, minmax(30px, 1fr));
+  grid-gap: 20px;
+  padding: 10px;
+  place-items: center;
+}
+
+.item-element {
+  display: grid;
+  place-items: center;
+}

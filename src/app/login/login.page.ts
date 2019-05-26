@@ -1,10 +1,11 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { LoginService } from '../service/login.service';
+import { LoginService } from '../service/login/login.service';
 import { take } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ToastController } from '@ionic/angular';
+import { ToastService } from '../service/utils/toast.service';
 
 @Component({
   selector: 'app-login',
@@ -21,7 +22,7 @@ export class LoginPage implements OnInit {
    * @param fb Reactive form builder
    */
   constructor(
-    private toastCtrl: ToastController,
+    private toastSv: ToastService,
     private router: Router,
     private loginService: LoginService,
     private fb: FormBuilder
@@ -67,32 +68,28 @@ export class LoginPage implements OnInit {
     this.loginService.performLogin(this.email, this.password).pipe(
       take(1)
     ).subscribe(
-      // default:
-      (isLogged: boolean) => isLogged ? this.router.navigate(['/']) : this.createToast('ohh no', true),
-      // error:
-      (err: HttpErrorResponse) => this.createToast(
-        // if type of error equals string,
-        // means the web service returned a message:
-        typeof err.error === typeof 'string'
-        // then it should show the error message:
-        ? err.error
-        // otherwise, shows:
-        : '❌ something bad happened 💩',
-        true
-      ),
-      // when observable completes:
-      () => this.waitingRequest = false
+      // next:
+      (isLogged: boolean) => {
+        isLogged
+        ? this.router.navigate(['/'])
+        : this.toastSv.createToast(
+          'something bad happened',
+          true
+        );
+      },
+      (err: HttpErrorResponse) => {
+        this.toastSv.createToast(
+          // if type of error equals string,
+          // means the web service returned a message:
+          typeof err.error === typeof 'string'
+          // then it should show the error message:
+          ? err.error
+          // otherwise, shows:
+          : '❌ something bad happened 💩',
+          true
+        );
+      }
     );
-  }
-
-  private async createToast(messageNotification: string, isError: boolean): Promise<void> {
-    const toastColor = isError ? 'danger' : 'success';
-    const toast = await this.toastCtrl.create({
-      message: messageNotification,
-      duration: 5000,
-      color: toastColor
-    });
-    toast.present();
   }
 
 }
