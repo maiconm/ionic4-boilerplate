@@ -1,12 +1,41 @@
 :host {
 	display: grid;
   grid-template-columns: repeat(3, minmax(30px, 1fr));
-  grid-gap: 20px;
-  padding: 10px;
+  grid-gap: 3vh 3vw;
   place-items: center;
+  padding: 2vh 2vw 2vh 2vw;
+  transition: opacity 2s ease-in;
+  background-color: rgb(53, 66, 78);
 }
 
 .item-element {
+  text-shadow: 5px 5px 10px black;
+  font-size: 1rem;
   display: grid;
+  grid-template-rows: repeat(2, 2rem);
   place-items: center;
+  animation-name: floating;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes floating {
+  from { transform: translate(0,  0px); }
+  65%  { transform: translate(0, 3px); }
+  to   { transform: translate(0, -0px); }    
+}
+
+.icon {
+  background-image: linear-gradient(red, yellow);
+  border-radius: 100%;
+}
+
+.inner-item {
+  text-align: center;
+  color: white;
+}
+
+.inner-item :hover {
+  color: red;
 }

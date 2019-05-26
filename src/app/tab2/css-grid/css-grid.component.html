@@ -1,6 +1,11 @@
 <div
-  class="item-element primary"
-  *ngFor="let element of elements"
+  class="item-element"
+  *ngFor="let emoji of emojis"
 >
-  {{ element }}
+  <div class="inner-item icon">
+    {{ emoji.emoji }}
+  </div>
+  <div class="inner-item">
+    {{ emoji.name }}
+  </div>
 </div>
