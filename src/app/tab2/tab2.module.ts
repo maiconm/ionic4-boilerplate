@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Tab2Page } from './tab2.page';
 import { CssGridComponent } from './css-grid/css-grid.component';
+import { RxjsTestComponent } from './rxjs-test/rxjs-test.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,10 @@ const routes: Routes = [
   {
     path: 'css-grid',
     component: CssGridComponent
+  },
+  {
+    path: 'rxjs-test',
+    component: RxjsTestComponent
   }
 ];
 @NgModule({
@@ -24,6 +29,7 @@ const routes: Routes = [
     RouterModule.forChild(routes)
   ],
   declarations: [
+    RxjsTestComponent,
     CssGridComponent,
     Tab2Page
   ]

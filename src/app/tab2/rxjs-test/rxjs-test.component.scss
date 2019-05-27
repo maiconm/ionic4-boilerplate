@@ -1,0 +1,18 @@
+:host {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr .1fr;
+  height: 91vh;
+}
+
+.display {
+  color: white;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(1fr, 5fr));
+}
+
+ion-button {
+  grid-row-start: 5;
+  grid-column-start: 1;
+  grid-column-end: 5;
+}
