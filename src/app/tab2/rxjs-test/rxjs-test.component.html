@@ -1,5 +1,7 @@
-<div class="display">
-  {{ colection | async}}
+<div class="display" >
+  <ng-container *ngFor="let element of colection | async">
+    <div>{{ element }}</div>
+  </ng-container>
 </div>
 <ion-button
   expand="full"

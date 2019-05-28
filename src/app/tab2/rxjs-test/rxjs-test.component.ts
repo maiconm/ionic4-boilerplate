@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { interval, ReplaySubject } from 'rxjs';
-import { take } from 'rxjs/operators';
+import { take, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-rxjs-test',
@@ -8,20 +8,21 @@ import { take } from 'rxjs/operators';
   styleUrls: ['./rxjs-test.component.scss'],
 })
 export class RxjsTestComponent implements OnInit {
-  protected colection = new ReplaySubject<string>(10);
+  protected colection = new ReplaySubject<string[]>(10);
   constructor() { }
 
   public ngOnInit() {
   }
 
   protected initRxjsFn(): void {
-    interval(1000).pipe(take(10))
-      .subscribe(
-        () => {
-          this.colection.next('🔴');
-        },
-        () => this.colection.next('error'),
-        () => this.colection.next('done')
+    let strArray: string[];
+    strArray = [];
+    interval(1000)
+      .pipe(
+        take(50),
+        map(() => strArray.push('🔴')),
+      ).subscribe(
+        () => this.colection.next(strArray)
       );
   }
 }
