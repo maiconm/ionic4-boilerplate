@@ -17,7 +17,7 @@ export class LoginPage implements OnInit {
   /**
    * Login reactive form
    */
-  protected loginForm: FormGroup;
+  public loginForm: FormGroup;
   /**
    * @param fb Reactive form builder
    */
@@ -25,7 +25,7 @@ export class LoginPage implements OnInit {
     private toastSv: ToastService,
     private router: Router,
     private loginService: LoginService,
-    private fb: FormBuilder
+    public fb: FormBuilder
   ) { }
 
   public ngOnInit() {

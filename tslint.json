@@ -6,7 +6,6 @@
   "rules": {
     "jsdoc-format": true,
     "ban-types": [true, "any"],
-    "array-type": true,
     "arrow-parens": false,
     "deprecation": {
       "severity": "warn"
@@ -42,6 +41,8 @@
       "timeEnd",
       "trace"
     ],
+    "typedef": true,
+    "only-arrow-functions": true,
     "no-non-null-assertion": true,
     "no-redundant-jsdoc": true,
     "no-switch-case-fall-through": true,
@@ -96,13 +97,16 @@
     ],
     "interface-over-type-literal": true,
     "label-position": true,
+    "no-any": true,
+    "no-duplicate-variables": true,
+    "no-empty": false,
     "no-arg": true,
     "no-bitwise": true,
     "no-construct": true,
     "no-debugger": true,
     "no-duplicate-super": true,
+    "no-duplicate-variable": true,
     "no-duplicate-imports": true,
-    "no-empty": false,
     "no-empty-interface": true,
     "no-eval": true,
     "no-inferrable-types": [
@@ -119,6 +123,7 @@
     "no-unnecessary-initializer": true,
     "no-unused-expression": true,
     "no-var-keyword": true,
+    "completed-docs": true,
     "one-line": [
       true,
       "check-open-brace",
