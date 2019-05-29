@@ -18,11 +18,19 @@ const LOG_STYLING = `
   `
 ;
 
+/**
+ * Initializer component.
+ */
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html'
 })
 export class AppComponent {
+  /**
+   * @param platform Platform manager.
+   * @param splashScreen Splash screen app.
+   * @param statusBar Status bar app.
+   */
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -33,7 +41,10 @@ export class AppComponent {
     this.initializeApp();
   }
 
-  private initializeApp() {
+  /**
+   * Initialize app and other Ionic's stuff.
+   */
+  private initializeApp(): void {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();

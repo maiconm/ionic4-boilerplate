@@ -7,6 +7,9 @@ import { TabsPageRoutingModule } from './tabs.router.module';
 
 import { TabsPage } from './tabs.page';
 
+/**
+ * Necessary modules to render the page.
+ */
 @NgModule({
   imports: [
     IonicModule,

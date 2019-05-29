@@ -1,16 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 
 interface IEmoji {
+  /**
+   * Emoji icon.
+   */
   emoji: string;
+  /**
+   * Emoji name.
+   */
   name: string;
 }
 
+/**
+ * CssGrid component. CSS grid sample.
+ */
 @Component({
   selector: 'app-css-grid',
   templateUrl: './css-grid.component.html',
   styleUrls: ['./css-grid.component.scss'],
 })
 export class CssGridComponent implements OnInit {
+  /**
+   * Emoji collection.
+   */
   public emojis: IEmoji[] = [
     {
       emoji: '💩',
@@ -50,7 +62,9 @@ export class CssGridComponent implements OnInit {
     }
   ];
   constructor() { }
-
+  /**
+   * Presets config for component.
+   */
   public ngOnInit() {}
 
 }

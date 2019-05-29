@@ -7,9 +7,9 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { LoginPage } from './login.page';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { By } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
 
+// tslint:disable
 class LoginServiceStub {
   public performLogin(x: string, y: string): Observable<boolean> {
     localStorage.set('token', 'test token');
@@ -32,7 +32,10 @@ describe('LoginPage', () => {
       declarations: [ LoginPage ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
       providers: [
-        { provide: LoginService, useClass: LoginServiceStub }
+        {
+          provide: LoginService,
+          useClass: LoginServiceStub
+        }
       ]
     })
     .compileComponents();

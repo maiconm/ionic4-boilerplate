@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 
+/**
+ * App tab.
+ */
 @Component({
   selector: 'app-tabs',
   templateUrl: 'tabs.page.html',

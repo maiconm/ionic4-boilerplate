@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { interval, ReplaySubject } from 'rxjs';
-import { take, map, catchError } from 'rxjs/operators';
+import { take, map } from 'rxjs/operators';
 
+/**
+ * RxjsTest component. RxJS sample test.
+ */
 @Component({
   selector: 'app-rxjs-test',
   templateUrl: './rxjs-test.component.html',
@@ -10,6 +13,7 @@ import { take, map, catchError } from 'rxjs/operators';
 export class RxjsTestComponent implements OnInit {
   /**
    * Replay subject collection string.
+   * Displayed in the DOM.
    */
   protected colection = new ReplaySubject<string[]>(10);
 
@@ -20,7 +24,10 @@ export class RxjsTestComponent implements OnInit {
    */
   public ngOnInit() {
   }
-
+  /**
+   * Subscribe to the observable
+   * pushing new elements to the array.
+   */
   protected initRxjsFn(): void {
     let strArray: string[];
     strArray = [];

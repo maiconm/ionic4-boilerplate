@@ -1,15 +1,20 @@
 import { Injectable } from '@angular/core';
 import { Router, CanActivateChild } from '@angular/router';
+
 import { Observable } from 'rxjs';
+
 import { ToastService } from '../service/utils/toast.service';
 
+/**
+ * Use in child routes, verify if the user has token.
+ */
 @Injectable({
   providedIn: 'root'
 })
 export class AuthGuard implements CanActivateChild {
   /**
-   * Injectables
-   * @param router routing and manage routes
+   * @param toastSv Toast manager.
+   * @param router Routing and manage routes
    */
   constructor(
     private toastSv: ToastService,
@@ -17,7 +22,8 @@ export class AuthGuard implements CanActivateChild {
   ) { }
 
   /**
-   * Allow route if user has token
+   * Allow route if user has token. If not, redirect to `LoginPage`.
+   * @returns True if has token.
    */
   public canActivateChild(): Observable<boolean> | boolean {
     const loggedIn = localStorage.token || false;

@@ -48,6 +48,9 @@ const routes: Routes = [
   }
 ];
 
+/**
+ * Routes.
+ */
 @NgModule({
   imports: [
     RouterModule.forChild(routes)

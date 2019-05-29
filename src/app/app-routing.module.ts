@@ -15,6 +15,9 @@ const routes: Routes = [
     canActivate: [LoginRedirectGuard]
   }
 ];
+/**
+ * Routes.
+ */
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })

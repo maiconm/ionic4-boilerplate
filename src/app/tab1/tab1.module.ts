@@ -5,6 +5,9 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Tab1Page } from './tab1.page';
 
+/**
+ * Necessary modules to render the page.
+ */
 @NgModule({
   imports: [
     IonicModule,

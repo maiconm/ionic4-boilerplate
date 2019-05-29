@@ -21,6 +21,9 @@ const routes: Routes = [
     component: RxjsTestComponent
   }
 ];
+/**
+ * Necessary modules to render the page.
+ */
 @NgModule({
   imports: [
     IonicModule,
